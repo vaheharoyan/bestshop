@@ -80,7 +80,6 @@ h2 {
 
 
 button {
-  background: linear-gradient(135deg, #27ae60, #2ecc71);
   color: white;
   border: none;
   padding: 12px 18px;
@@ -95,7 +94,6 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  box-shadow: 0 5px 20px rgba(39, 174, 96, 0.5);
 }
 
 
@@ -156,57 +154,6 @@ button:hover {
 }
 
 
-.cart-container {
-  text-align: center;
-  padding: 30px;
-  background: #f4f4f4;
-  min-height: 100vh;
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.cart-image {
-  width: 80px;
-  height: 80px;
-  border-radius: 5px;
-  object-fit: cover;
-}
-
-.cart-info {
-  flex-grow: 1;
-  text-align: left;
-  padding: 0 15px;
-}
-
-.cart-controls {
-  display: flex;
-  align-items: center;
-}
-
-.cart-btn {
-  background: #ff7b00;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 18px;
-  margin: 0 5px;
-  border-radius: 5px;
-}
-
-.cart-btn:hover {
-  background: #ff9a3c;
-}
-
 .remove-btn {
   background: red;
   color: white;
@@ -232,4 +179,76 @@ button:hover {
 
 .back-to-shop:hover {
   background: #0056b3;
+}
+
+
+
+.cart-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cart-info {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.cart-btn:hover {
+  background-color: #0056b3;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove-btn:hover {
+  background-color: #c82333;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 20px;
 }
