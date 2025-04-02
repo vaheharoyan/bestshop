@@ -1,14 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
-function Navbar({ cart }) {
- 
-  const totalItems = cart.reduce((sum, item) => sum + item.qanak, 0);
+function Navbar() {
+  const { cart } = useCart();
+  const totalItems = cart.reduce((total, item) => total + item.qanak, 0);
 
   return (
-    <nav>
-      <NavLink to="/">Shop</NavLink> 
-       <NavLink to="/cart">Cart ({totalItems})</NavLink>
+    <nav className="navbar">
+      <NavLink to="/">Shop</NavLink>
+      <NavLink to="/cart">Cart ({totalItems})</NavLink>
     </nav>
   );
 }

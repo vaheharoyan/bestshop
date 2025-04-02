@@ -1,31 +1,10 @@
 import React from "react";
-import {NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
-function Cart({ cart, setCart }) {
-  const removeFromCart = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-  };
+function Cart() {
+  const { cart, qanakiAvelacum, qanakinvazecum, removeFromCart } = useCart();
 
-  const qanakiavelacum = (id) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === id ? { ...item, qanak: item.qanak + 1, totalPrice: (item.qanak+ 1) * item.price } : item
-      )
-    );
-  };
-
-  const qanakinvazecum
-  = (id) => {
-    setCart((prevCart) =>
-      prevCart
-        .map((item) =>
-          item.id === id && item.qanak > 1
-            ? { ...item, qanak: item.qanak - 1, totalPrice: (item.qanak - 1) * item.price }
-            : item
-        )
-        .filter((item) => item.qanak > 0)
-    );
-  };
   const totalCartPrice = cart.reduce((total, item) => total + item.price * item.qanak, 0);
 
   return (
@@ -44,7 +23,7 @@ function Cart({ cart, setCart }) {
               <div className="cart-controls">
                 <button className="cart-btn" onClick={() => qanakinvazecum(item.id)}>-</button>
                 <span>{item.qanak}</span>
-                <button className="cart-btn" onClick={() => qanakiavelacum(item.id)}>+</button>
+                <button className="cart-btn" onClick={() => qanakiAvelacum(item.id)}>+</button>
               </div>
             </div>
             <button className="remove-btn" onClick={() => removeFromCart(item.id)}>Remove</button>
@@ -52,7 +31,7 @@ function Cart({ cart, setCart }) {
         ))
       )}
       <h3 className="total-price">Total Price: ${totalCartPrice}</h3>
-      <NavLink to="/" className="back-to-shop">Back to Shop</NavLink>
+      <Link to="/" className="back-to-shop">Back to Shop</Link>
     </div>
   );
 }

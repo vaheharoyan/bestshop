@@ -1,6 +1,6 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 import Product from "./Product";
-import "./Shop.css"; 
 
 const products = [
   { id: 1, name: "Laptop", price: 999, image: "https://img.mta.ua/image/cache/data/foto/z868/868176/photos/Lenovo-82K2028DPB-57-Shadow-Black-02-600x600.jpg" },
@@ -13,10 +13,12 @@ const products = [
   { id: 8, name: "Smartwatch", price: 149, image: "https://en-pk.svestonwatches.com/cdn/shop/files/Zenvibe_Ad_1_Blue_1800x1800.jpg?v=1742081253" },
 ];
 
-function Shop({ addToCart }) {
+function Shop() {
+  const { addToCart } = useCart(); 
+
   return (
     <div className="shop-container">
-      <h2> Our Products</h2>
+      <h2>Shop</h2>
       <div className="shop-grid">
         {products.map((product) => (
           <Product key={product.id} product={product} addToCart={addToCart} />
